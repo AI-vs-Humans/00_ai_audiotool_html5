@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Content Loader</title>
-    <link href="./assets/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Editing Tool</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="nav" id="nav"></div>
-    <div class="app" id="app"></div>
-    <script>
-        function loadContent(id, url) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => document.getElementById(id).innerHTML = data)
-                .catch(error => console.error('Error loading content:', error));
-        }
-
-        loadContent('nav', './app/nav/index.htmll');
-        loadContent('app', './app/index/index.html');
-    </script>
+    <h1>Audio Editing Tool</h1>
+    <div class="deck" id="deckA">
+        <input type="file" id="fileA" accept="audio/*">
+        <audio id="audioA" controls></audio>
+        <button onclick="playPause('A')">Play/Pause</button>
+        <input type="range" id="volumeA" min="0" max="1" step="0.01" value="0.5">
+        <input type="range" id="seekA" min="0" max="100" step="1" value="0">
+    </div>
+    <div class="deck" id="deckB">
+        <input type="file" id="fileB" accept="audio/*">
+        <audio id="audioB" controls></audio>
+        <button onclick="playPause('B')">Play/Pause</button>
+        <input type="range" id="volumeB" min="0" max="1" step="0.01" value="0.5">
+        <input type="range" id="seekB" min="0" max="100" step="1" value="0">
+    </div>
+    <button onclick="startRecording()">Start Recording</button>
+    <button onclick="stopRecording()">Stop Recording</button>
+    <button onclick="exportRecording('mp3')">Export MP3</button>
+    <button onclick="exportRecording('wav')">Export WAV</button>
+    <script src="script.js"></script>
+    <script src="recorder.js"></script>
 </body>
 </html>
