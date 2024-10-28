@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Editing Tool</title>
+    <title>DJ Tool</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Audio Editing Tool</h1>
-    <div class="deck" id="deckA">
-        <input type="file" id="fileA" accept="audio/*">
-        <audio id="audioA" controls></audio>
-        <button onclick="playPause('A')">Play/Pause</button>
-        <input type="range" id="volumeA" min="0" max="1" step="0.01" value="0.5">
-        <input type="range" id="seekA" min="0" max="100" step="1" value="0">
+    <h1>DJ Tool</h1>
+    <div class="player" id="player1">
+        <input type="file" id="file1" accept="audio/*">
+        <div id="waveform1"></div>
+        <audio id="audio1" controls></audio>
+        <button onclick="playPause(1)">Play/Pause</button>
+        <input type="range" id="volume1" min="0" max="1" step="0.01" value="0.5">
     </div>
-    <div class="deck" id="deckB">
-        <input type="file" id="fileB" accept="audio/*">
-        <audio id="audioB" controls></audio>
-        <button onclick="playPause('B')">Play/Pause</button>
-        <input type="range" id="volumeB" min="0" max="1" step="0.01" value="0.5">
-        <input type="range" id="seekB" min="0" max="100" step="1" value="0">
+    <div class="player" id="player2">
+        <input type="file" id="file2" accept="audio/*">
+        <div id="waveform2"></div>
+        <audio id="audio2" controls></audio>
+        <button onclick="playPause(2)">Play/Pause</button>
+        <input type="range" id="volume2" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div id="mixer">
+        <h2>Mixer</h2>
+        <input type="range" id="crossfader" min="0" max="1" step="0.01" value="0.5">
     </div>
     <button onclick="startRecording()">Start Recording</button>
     <button onclick="stopRecording()">Stop Recording</button>
     <button onclick="exportRecording('mp3')">Export MP3</button>
     <button onclick="exportRecording('wav')">Export WAV</button>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="script.js"></script>
     <script src="recorder.js"></script>
 </body>
