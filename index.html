@@ -3,35 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ Tool</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>GrooveMaster</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/tiling.js" defer></script>
+    <script src="js/audio.js" defer></script>
 </head>
 <body>
-    <h1>DJ Tool</h1>
-    <div class="player" id="player1">
-        <input type="file" id="file1" accept="audio/*">
-        <div id="waveform1"></div>
-        <audio id="audio1" controls></audio>
-        <button onclick="playPause(1)">Play/Pause</button>
-        <input type="range" id="volume1" min="0" max="1" step="0.01" value="0.5">
+    <header>
+        <h1>GrooveMaster DJ Tool</h1>
+    </header>
+    <div id="tiling-container">
+        <div class="tile" id="deck1">
+            <input type="file" id="file1" accept="audio/*">
+            <audio id="audio1" controls></audio>
+            <div id="equalizer1"></div>
+        </div>
+        <div class="tile" id="deck2">
+            <input type="file" id="file2" accept="audio/*">
+            <audio id="audio2" controls></audio>
+            <div id="equalizer2"></div>
+        </div>
+        <div class="tile" id="volume-manager">
+            <h2>Volume Manager</h2>
+            <input type="range" id="volume1" min="0" max="1" step="0.01" value="0.5">
+            <input type="range" id="volume2" min="0" max="1" step="0.01" value="0.5">
+        </div>
+        <div class="tile" id="sample-editor">
+            <h2>Sample Editor</h2>
+            <input type="file" id="sample-file" accept="audio/*">
+            <audio id="sample-audio" controls></audio>
+        </div>
     </div>
-    <div class="player" id="player2">
-        <input type="file" id="file2" accept="audio/*">
-        <div id="waveform2"></div>
-        <audio id="audio2" controls></audio>
-        <button onclick="playPause(2)">Play/Pause</button>
-        <input type="range" id="volume2" min="0" max="1" step="0.01" value="0.5">
-    </div>
-    <div id="mixer">
-        <h2>Mixer</h2>
-        <input type="range" id="crossfader" min="0" max="1" step="0.01" value="0.5">
-    </div>
-    <button onclick="startRecording()">Start Recording</button>
-    <button onclick="stopRecording()">Stop Recording</button>
-    <button onclick="exportRecording('mp3')">Export MP3</button>
-    <button onclick="exportRecording('wav')">Export WAV</button>
-    <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script src="script.js"></script>
-    <script src="recorder.js"></script>
+    <footer>
+        <p>&copy; 2024 GrooveMaster</p>
+    </footer>
 </body>
 </html>
